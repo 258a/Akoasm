@@ -1,59 +1,30 @@
 {
-
     "name": "柠檬中文网",
-
     "url": "www.lemonyd.com",
-
-    "version": 100,
-
+    "version": 101,
     "search": {
-
         "url": "https://search.lemonyd.com/m
-
 /book/search?page=1&sort=-1&
-
 words=-1&order=0&queryString=${key}&highlight=false&size=5",
-
         "list": "$.data.content[*]",
-
         "name": "$.name",
-
         "author":"$.authorname",
-
         "cover": "$.iconUrlSmall",
-
         "detail": "https://www.lemonyd.com/v1/book/${$.id}?id=${$.id}&site=1"
-
     },
-
     "detail": {
-
         "summary":"$.data.bookInfoWebView.iintroduce",
-
         "status": "$.data.bookInfoWebView.status@equal->1",
-
         "update": "$.data.bookInfoWebView.lastChaptertime",
-
         "lastChapter": "$.data.bookInfoWebView.lastChapterId", 
-
         "catalog":"https://www.lemonyd.com/v1/book/${$params.id}/catalog?id=${$params.id}&size=100"
-
     },
-
     "catalog": {
-
         "list": "$.data[0].chapters[*]",
-
         "name": "$.name",
-
-        "chapter": "/v1/chapter/${$.bookId}/${$.contentId}"
-
+        "chapter": "/v1/chapter/${$.bookId}/${$.contentId}?buy=false"
     },
-
     "chapter": {
-
-        "content": "/v1/chapter/${$.bookId}/${$.contentId}?buy=false"
-
+        "content": "$.data.content.value"
     }
-
 }
