@@ -8,11 +8,7 @@
 
     "search": {
 
-        "url": "https://search.lemonyd.com/m
-
-/book/search?page=1&sort=-1&
-
-words=-1&order=0&queryString=${key}&highlight=false&size=5",
+        "url": "https://search.lemonyd.com/m/book/search?page=1&sort=-1&words=-1&order=0&queryString=${key}&highlight=false&size=5",
 
         "list": "$.data.content[*]",
 
